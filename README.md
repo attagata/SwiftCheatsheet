@@ -100,7 +100,7 @@ let c = a + b
 Swift can determine the _type_ (`Int`, `Double`, `String`, etc.) of a variable on its own. This is called _type inference_. In this example, the type of `name` is inferred to be `String`.
 
 ```swift
-var name = "Arthur Dent"
+var name = "Anderson Tagata"
 ```
 
 Variables can be _optional_, which means it either contains a value or it's `nil`. Optionals make coding Swift safer and more productive. Here's an optional string:
@@ -127,7 +127,13 @@ This function has two _parameters_ called `name` and `greeting`, both of type `S
 You call the function like the following. The function is called, with two arguments, and the return value of the function is assigned to `message`.
 
 ```swift
-let message = greetUser(name: "Zaphod", bySaying: "Good Morning") 
+let message = greetUser(name: "Tagata", bySaying: "Good Night") 
+```
+
+You can call function without optional arg like this.
+
+```swift
+let message = greetUser(name: "Tagata") 
 ```
 
 Courses, books, documentation, etc. uses a special notation for function signatures. It'll use the function name and argument labels, like `greetUser(name:bySaying:)`, to describe the function.
@@ -142,17 +148,18 @@ let age = 42
 
 Swift has a few basic math operators:
 
-- `a + b` for _addition_ (works for strings too)
-- `a - b` for _subtraction_
-- `a * b` for _multiplication_
-- `a / b` for _division_
-- `a % b` for _remainder_ (or use `isMultiple(of:)`)
-- `-a` for _minus_ (invert sign)
+- `a + b` // for _addition_ (works for strings too)
+- `a - b` // for _subtraction_
+- `a * b` // for _multiplication_
+- `a / b` // for _division_
+- `a % b` // for _remainder_ (or use `isMultiple(of:)`)
+- `-a`    // for _minus_ (invert sign)
+- `-(-a)` // for double inverted sign
 
 Unlike other programming languages, Swift does not have `--` and `++` operators. Instead it has:
 
-- `a += b` for _addition_, such as `n += 1` for `n++` or `n = n + 1`
-- `a -= b` for _subtraction_, such as `n -= 1` for `n--` or `n = n - 1`
+- `a += b` // for _addition_, such as `n += 1` for `n++` or `n = n + 1`
+- `a -= b` // for _subtraction_, such as `n -= 1` for `n--` or `n = n - 1`
 
 You can also use `+=` for arrays:
 
@@ -163,12 +170,12 @@ rappers += ["Tupac"]
 
 Swift has 6 comparison operators:
 
-- `a == b` for _equality_, i.e. "a is equal to b"
-- `a != b` for _inequality_, i.e. "a is not equal to b"
-- `a > b` for _greater than_, i.e. "a is greater than b"
-- `a < b` for _less than_, i.e. "a is less than b"
-- `a >= b` for _greater than or equal_
-- `a <= b` for _less than or equal_
+- `a == b` // for _equality_, i.e. "a is equal to b"
+- `a != b` // for _inequality_, i.e. "a is not equal to b"
+- `a > b`  // for _greater than_, i.e. "a is greater than b"
+- `a < b`  // for _less than_, i.e. "a is less than b"
+- `a >= b` // for _greater than or equal_
+- `a <= b` // for _less than or equal_
 
 Swift also has the identity operators `===` and `!==`. You can use them to test if two variables reference the exact _same object_. Contrast this with `==` and `!=`, which merely test if two objects are equal to each other.
 
@@ -182,9 +189,9 @@ You can also compare strings, which is helpful for sorting. Like this:
 
 Swift has 3 logical operators:
 
-- `a && b` for _Logical AND_, returns `true` if `a` and `b` are `true`, or `false` otherwise
-- `a || b` for _Logical OR_, returns `true` if either `a` or `b` is `true`, or both are `true`, or `false` otherwise
-- `!a` for _Logical NOT_, returns `true` if `a` is `false`, and `false` if `a` is `true` (i.e., the opposite of `a`)
+- `a && b` // for _Logical AND_, returns `true` if `a` and `b` are `true`, or `false` otherwise
+- `a || b` // for _Logical OR_, returns `true` if either `a` or `b` is `true`, or both are `true`, or `false` otherwise
+- `!a`     // for _Logical NOT_, returns `true` if `a` is `false`, and `false` if `a` is `true` (i.e., the opposite of `a`)
 
 Swift has a few range operators. You can use them to define ranges of numbers and strings.
 
@@ -192,10 +199,33 @@ Swift has a few range operators. You can use them to define ranges of numbers an
 - `a..<b`, the _half-open range operator_, defines a range from `a` to `b` _not_ including `b`
 
 You can also use _one-sided ranges_. They're especially useful in arrays.
+```swift
+// DEFINE ARRAY
+var array: [Int] = Array(a...b)
+```
 
 - `a...` in `array[a...]` defines a range from `a` to the end of the array
+```swift
+array[5...]
+```
+
 - `...a` in `array[...a]` defines a range from the beginning of the array to `a`
+```swift
+array[...5]
+```
+
 - `..<a` in `array[..<a` defines a range from the beginning of the array to `a`, not including `a` itself
+```swift
+array[..<5]
+```
+
+- You can also check whether a one-sided range contains a particular value, as shown in the code below.
+```swift
+let range = 1...5
+range.contains(7)   // false
+range.contains(4)   // true
+range.contains(-1)  // false
+```
 
 ## <a name="oop"></a> Classes, Objects, Properties
 

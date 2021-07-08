@@ -1,8 +1,6 @@
 import UIKit
 
-// MARK: - Variables
-
-var greeting = "Hello, playground"
+// Variables
 
 // Use var for variables that can change ("mutable") and let for constants that can't change ("non-mutable").
 
