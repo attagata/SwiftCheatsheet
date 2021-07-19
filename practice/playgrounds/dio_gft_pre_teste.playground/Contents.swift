@@ -52,24 +52,32 @@ print(i)
 //print(pedido)
 // >> ERRO DE COMPILACAO
 
+
 // REFACTORED SWIFT 5
 var menu = ["Arroz e Feijão",
-              "Saladas e Molhos",
-              "Bife com Fritas"]
+            "Saladas e Molhos",
+            "Bife com Fritas"]
 
 var acompanhamento = false
 var pedido = ""
 
 for item in menu {
-       let separator = item.Characters.index(of: " ")!
-       let name = acompanhamento ?
-                     String(item.characters.suffix(from: separator)):
-                     String(item.Characters.prefix(upTo: separator));
-       acompanhamento = true
+    
+    //let separator = item.Characters.index(of: " ")!
+    let separator = item.firstIndex(of: " ")!
+    
+    let name = acompanhamento ?
+        String(item.suffix(from: separator)):
+        String(item.prefix(upTo: separator));
+    
+    acompanhamento = true
 
-       pedido += "\(name)"
+    pedido += "\(name)"
 }
+
 print(pedido)
+
+
 //----
 
 class Veiculo{
